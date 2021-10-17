@@ -1,4 +1,7 @@
+import {useEffect, useState} from "react";
 import { BrowserRouter, Switch, Route } from "react-router-dom"
+import { getAuth, onAuthStateChanged } from "firebase/auth";
+import app from "./firebase/firebaseConfig";
 import Home from "./components/Home";
 import Login from "./components/Login";
 import Register from "./components/Register";
@@ -6,9 +9,23 @@ import Navbar from "./components/common/NavBar";
 import {Container} from "@mui/material";
 
 const App= () => {
+    const [email, setEmail] = useState('');
+    useEffect(()=> {
+        const auth = getAuth(app);
+        onAuthStateChanged(auth, (user) => {
+            if (user) {
+                const uid = user.uid;
+                console.log(user);
+                setEmail(user.email)
+            } else {
+                // User is signed out
+            }
+        });
+    },[]);
+
   return (
     <BrowserRouter>
-        <Navbar/>
+        <Navbar email={email}/>
         <Container maxWidth="sm">
             <Switch>
                 <Route exact path="/" component={Home}/>
