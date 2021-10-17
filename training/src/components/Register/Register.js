@@ -1,13 +1,27 @@
+import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
+import app from "../../firebase/firebaseConfig"
 import {Box, Button, TextField, Typography} from "@mui/material";
 import {useState} from "react";
 
 const Register = () => {
-    const [mail, setMail] = useState("");
+    const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
 
     const submitHandler = (e) => {
         e.preventDefault();
-        console.log(mail, password)
+        console.log(email,password);
+        const auth = getAuth(app);
+        createUserWithEmailAndPassword(auth, email, password)
+            .then((userCredential) => {
+                // Signed in
+                const user = userCredential.user;
+                // ...
+            })
+            .catch((error) => {
+                const errorCode = error.code;
+                const errorMessage = error.message;
+                // ..
+            });
     };
 
     return (
@@ -18,8 +32,8 @@ const Register = () => {
                     required
                     id="outlined-required-mail"
                     label="Mail"
-                    value={mail}
-                    onChange={e => setMail(e.target.value)}
+                    value={email}
+                    onChange={e => setEmail(e.target.value)}
                     fullWidth
                     margin="normal"
                 />
