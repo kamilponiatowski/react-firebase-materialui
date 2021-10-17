@@ -1,5 +1,6 @@
 import { AppBar, Box, Button, IconButton, Toolbar } from "@mui/material";
 import MenuIcon from '@mui/icons-material/Menu';
+import BasicMenu from "./BasicMenu";
 
 
 const Navbar = () => {
@@ -7,15 +8,7 @@ const Navbar = () => {
         <Box sx={{ flexGrow: 1 }}>
             <AppBar position="static">
                 <Toolbar>
-                    <IconButton
-                        size="large"
-                        edge="start"
-                        color="inherit"
-                        aria-label="menu"
-                        sx={{ mr: 2 }}
-                    >
-                        <MenuIcon />
-                    </IconButton>
+                    <BasicMenu/>
                     <Button color="inherit">Login</Button>
                 </Toolbar>
             </AppBar>

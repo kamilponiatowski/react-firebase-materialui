@@ -9,7 +9,7 @@ const App= () => {
   return (
     <BrowserRouter>
         <Navbar/>
-        <Container>
+        <Container maxWidth="sm">
             <Switch>
                 <Route exact path="/" component={Home}/>
                 <Route exact path="/login" component={Login}/>
