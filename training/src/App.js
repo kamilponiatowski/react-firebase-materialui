@@ -1,7 +1,12 @@
-function App() {
+import {useState} from "react";
+import Counter from "./Counter";
+
+const App= () => {
+   const [welcome, setWelcome] = useState('Hellow World')
   return (
     <div className="App">
-        siemka
+        { welcome }
+        <Counter/>
     </div>
   );
 }
