@@ -7,6 +7,7 @@ import Login from "./components/Login";
 import Register from "./components/Register";
 import Navbar from "./components/common/NavBar";
 import {Container} from "@mui/material";
+import AddArticle from "./components/AddArticle";
 
 const App= () => {
     const [email, setEmail] = useState('');
@@ -31,6 +32,7 @@ const App= () => {
                 <Route exact path="/" component={Home}/>
                 <Route exact path="/login" component={Login}/>
                 <Route exact path="/register" component={Register}/>
+                <Route exact path="/addarticle" component={AddArticle}/>
             </Switch>
         </Container>
     </BrowserRouter>

@@ -40,6 +40,7 @@ export default function BasicMenu() {
                 <MenuItem onClick={handleClose}><Link to="/">Strona Główna</Link></MenuItem>
                 <MenuItem onClick={handleClose}><Link to="/login">Zaloguj się</Link></MenuItem>
                 <MenuItem onClick={handleClose}><Link to="/register">Zarejestruj</Link></MenuItem>
+                <MenuItem onClick={handleClose}><Link to="/addarticle">Dodaj artykuł</Link></MenuItem>
             </Menu>
         </div>
     );
