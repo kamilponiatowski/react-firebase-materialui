@@ -1,13 +1,17 @@
-import {useState} from "react";
-import Counter from "./Counter";
+import { BrowserRouter, Switch, Route } from "react-router-dom"
+import Home from "./components/Home";
+import Login from "./components/Login";
+import Register from "./components/Register";
 
 const App= () => {
-   const [welcome, setWelcome] = useState('Hellow World')
   return (
-    <div className="App">
-        { welcome }
-        <Counter/>
-    </div>
+    <BrowserRouter>
+        <Switch>
+            <Route exact path="/" component={Home}/>
+            <Route exact path="/login" component={Login}/>
+            <Route exact path="/register" component={Register}/>
+        </Switch>
+    </BrowserRouter>
   );
 }
 
